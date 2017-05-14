@@ -1,0 +1,22 @@
+
+      <header id="header">
+        <h1>todos</h1>
+          
+          <%= hidden_field 'new_task',:cat_id, value: 1 %>
+          <input id="new_task_name" name="new_task[name]" placeholder="Новая задача">
+
+      </header>
+
+<ul id="todo-list">
+<% @tasks.each do |task| %>
+<li data-id='<%= task.id %>'>
+        <div class="view">
+          <input class="toggle" type="checkbox" <%= task.done ? 'checked=""true""' : '' %>>
+          <label><%= task.name %></label>
+          <button class="destroy"></button>
+        </div>
+        <input class="edit" value="<%= task.name %>">
+      </li>
+<% end %>
+</ul>
+</section>
