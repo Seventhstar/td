@@ -14,6 +14,7 @@
           <input class="toggle" type="checkbox" <%= task.done ? 'checked=""true""' : '' %>>
           <label><%= task.name %></label>
           <button class="destroy"></button>
+          <span class="letter"><%= task.cat_name_a %></span>
         </div>
         <input class="edit" value="<%= task.name %>">
       </li>

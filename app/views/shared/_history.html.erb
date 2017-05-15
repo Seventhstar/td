@@ -1,0 +1,17 @@
+<div class="hl hl_a">История изменений <span class="grey">(<%= @history.count %>)</span></div>
+<div class="historyChange_list_a">
+
+  <%- @history.each do |version_fields| %>
+
+  <%- version = version_fields[1] %>
+  <div class="item">
+    <div class="head"><%= version['author'] %>, <span class="date"><%= version['at'] %></span></div>
+    <ul>
+	<%- version['description'].each do |descr| %>
+	       <li><%= raw(descr) %></li>
+        <% end %>
+    </ul>
+  </div>
+
+  <% end %>
+</div>

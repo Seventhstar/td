@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   resources :tasks
+  resources :cats
+  get    'options'  => 'options#edit'
+  get    'options/:options_page'  => 'options#edit',:constraints => {:format => /(json|html)/}
+  post   'options/:options_page' => 'options#create'
+  delete 'options/:options_page/:id' => 'options#destroy'
+
   root :to => "tasks#index"
   post "ajax/add_task"
   post "ajax/set_check"
