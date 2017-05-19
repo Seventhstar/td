@@ -1,23 +1,25 @@
-
+<%= chosen_src 'cat_id', Cat.all, 1,{class: 'schosen',add_name: 'new_task'} %>
       <header id="header">
         <h1>todos</h1>
           
           <% hidden_field 'new_task',:cat_id, value: 1 %>
-          <%=  %>
+          
           <input id="new_task_name" name="new_task[name]" placeholder="Новая задача">
 
       </header>
 
-<ul id="todo-list">
+<ul id="todo-list" model="Task">
 <% @tasks.each do |task| %>
 <li data-id='<%= task.id %>'>
         <div class="view">
           <input class="toggle" type="checkbox" <%= task.done ? 'checked=""true""' : '' %>>
           <label><%= task.name %></label>
-          <button class="destroy"></button>
+          <% tool_icons(task,{icons:'edit,delete',tag: 'span'}) %>
+          <!-- <button class="edit"></button>
+          <button class="destroy"></button> -->
           <span class="letter"><%= task.cat_name_a %></span>
         </div>
-        <input class="edit" value="<%= task.name %>">
+        <input class="edit" name="upd<%= task.id %>[name]" value="<%= task.name %>">
       </li>
 <% end %>
 </ul>

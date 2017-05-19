@@ -1,39 +1,13 @@
 // Place all the styles related to the Tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-#todo-list li .destroy {
-	display: none;
-	position: absolute;
-	top: 0;
-	right: 10px;
-	bottom: 0;
-	width: 40px;
-	height: 40px;
-	margin: auto 0;
-	font-size: 30px;
-	color: #cc9a9a;
-	margin-bottom: 11px;
-	transition: color 0.2s ease-out;
-}
-
-#todo-list li .destroy:hover {
-	color: #af5b5e;
-}
-
-#todo-list li .destroy:after {
-	content: '×';
-}
-
-#todo-list li:hover .destroy {
-	display: block;
-}
 
 
 span.letter{
 
     text-align: center;
     width: 40px;
-    height: auto;
+        height: 18px;
     position: absolute;
     right: 0;
     bottom: 0;
@@ -41,3 +15,19 @@ span.letter{
     background-color: bisque;
 
 }
+
+li .icon {right: 0}
+.icon,li.icon a {display: inline-block; background: asset-url('pict01.png') no-repeat; vertical-align:middle; position:relative; 
+                  width: 16px; height: 16px; cursor: pointer;}
+
+.icon_logout {background-position:0 0; }
+.icon_user {background-position:-18px 0; width: 14px;  }
+a:hover .icon_user, .active .icon_user {background-position:-18px -18px; }
+.icon_options,li.icon_options a{background-position:-228px 0; width: 24px; height: 24px; }
+.icon_edit {background-position:-69px -16px; }
+.icon_show {background-position:-212px -16px; margin: 0 4px 0 0 !important;}
+.icon_apply {background-position:-69px -33px; }
+// .icon_apply:hover {background-position:-69px -48px;}
+.icon_cancel {background-position:-51px -33px; margin: 0 4px 0 0 !important;}
+.icon_cancel:hover {background-position:-51px 0px;}
+.app_cancel .icon{margin: 5px 9px 0 0 !important;}

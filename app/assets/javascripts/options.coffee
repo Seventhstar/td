@@ -1,3 +1,51 @@
+@upd_param = (param)->
+  $.ajax
+      url: '/ajax/upd_param'
+      data: param
+      type: 'POST'
+      beforeSend: (xhr) ->
+        xhr.setRequestHeader 'X-CSRF-Token', $('meta[name="csrf-token"]').attr('content')
+        return
+      success: ->
+        disable_input(false)
+        show_ajax_message('Успешно обновлено')
+     return
+
+@apply_opt_change = (item_id)->
+  model = $('#todo-list').attr('model')
+  # item_id = item.attr('data-id')
+  inputs = $('input[name^=upd'+item_id+']').serialize()
+  upd_param(inputs+'&model='+model+'&id='+item_id)  
+  sortable_query({})
+  return
+
+@sortable_query = (params)->
+  l = window.location.toString().split('?');
+  p = q2ajx(l[1])
+  ser = $('.index_filter').serialize()
+  if ser == ""
+    ser = $('.index_filter select').serialize()
+  p_params = q2ajx(ser)
+  
+  url ={}
+  each p, (i, a) ->
+    if ['search','page','_'].include? i 
+      url[i] = a
+    return
+  each p_params, (i, a) ->
+    url[i] = a
+    return
+  each params, (i, a) ->
+    url[i] = a
+    return
+  
+  controller =  $('#search').attr('cname')
+  controller = '' if controller == undefined
+  $.get '/'+controller, url, null, 'script'
+  setLoc(""+controller+"?"+ajx2q(url));
+  return
+
+
 $(document).ready ->
   $('#new_task_name').focus()
   $(document).on 'keyup', '#new_task_name', (e) ->
@@ -12,6 +60,17 @@ $(document).ready ->
           $.get 'tasks', '', null, 'script'
           return
     return
+  $('input').on 'blur', ->
+    $('.editing').closest('li').removeClass 'editing'
+  $(document).on 'keyup', 'input.edit', (e) ->
+    if (e.which == 13)
+        apply_opt_change(e.target.closest('li').getAttribute('data-id'))
+        e.target.blur()
+    if (e.which == 27)
+        $(e.target).closest('li').removeClass('editing')
+  $(document).on 'dblclick', 'label',(e) ->  
+    $input = $(e.target).closest('li').addClass('editing').find('.edit');
+    $input.val($input.val()).focus();
   $(document).on 'click', '.toggle', ->
 			task_id = $(this).closest('li').attr('data-id')
 			done = $(this).is( ":checked" )
