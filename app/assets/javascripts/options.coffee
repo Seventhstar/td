@@ -7,7 +7,7 @@
         xhr.setRequestHeader 'X-CSRF-Token', $('meta[name="csrf-token"]').attr('content')
         return
       success: ->
-        disable_input(false)
+        # disable_input(false)
         show_ajax_message('Успешно обновлено')
      return
 
@@ -27,7 +27,7 @@
     ser = $('.index_filter select').serialize()
   p_params = q2ajx(ser)
   
-  url ={}
+  url = { }
   each p, (i, a) ->
     if ['search','page','_'].include? i 
       url[i] = a
@@ -35,9 +35,11 @@
   each p_params, (i, a) ->
     url[i] = a
     return
-  each params, (i, a) ->
-    url[i] = a
-    return
+
+  if params!=undefined
+    each params, (i, a) -> 
+      url[i] = a
+      return
   
   controller =  $('#search').attr('cname')
   controller = '' if controller == undefined
@@ -69,6 +71,7 @@ $(document).ready ->
     if (e.which == 27)
         $(e.target).closest('li').removeClass('editing')
   $(document).on 'dblclick', 'label',(e) ->  
+    $('.editing').closest('li').removeClass 'editing'
     $input = $(e.target).closest('li').addClass('editing').find('.edit');
     $input.val($input.val()).focus();
   $(document).on 'click', '.toggle', ->

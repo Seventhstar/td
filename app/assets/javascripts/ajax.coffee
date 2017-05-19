@@ -2,5 +2,12 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+@doChosen = ->
+	$('.schosen').chosen(width: '99.5%').on 'change', ->
+		sortable_query()
+
 $(document).ready ->
-	$('.schosen').chosen(width: '99.5%')
+	doChosen()
+	
+$( document ).ajaxStop ->
+	doChosen()
