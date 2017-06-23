@@ -4,7 +4,14 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    params.delete_if{|k,v| v=='' || v=='0' }
+
+    if params[:cat_id]
+      @tasks = Task.where(cat_id: params[:cat_id])
+    else
+      @tasks = Task.all
+    end
+
   end
 
   # GET /tasks/1

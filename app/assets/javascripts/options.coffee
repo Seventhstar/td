@@ -1,4 +1,7 @@
-@upd_param = (param)->
+@update_page = ->
+  $.get document.URL, null, null, 'script'
+
+@upd_param = (param, reload=false)->
   $.ajax
       url: '/ajax/upd_param'
       data: param
@@ -7,16 +10,24 @@
         xhr.setRequestHeader 'X-CSRF-Token', $('meta[name="csrf-token"]').attr('content')
         return
       success: ->
-        disable_input(false)
+        # disable_input(false)
+        if reload then update_page()
         show_ajax_message('Успешно обновлено')
      return
 
-@apply_opt_change = (item_id)->
+@apply_opt_change = (item)->
   model = $('#todo-list').attr('model')
-  # item_id = item.attr('data-id')
-  inputs = $('input[name^=upd'+item_id+']').serialize()
-  upd_param(inputs+'&model='+model+'&id='+item_id)  
-  sortable_query({})
+  if typeof item == 'string'
+    item_id = item 
+    inputs = $('input[name^=upd'+item_id+']').serialize()
+  else
+    item_id = item.attr('item_id')
+    model = item.closest('table').attr('model')
+    inputs = $('input[name^=upd]').serialize()
+
+  upd_param(inputs+'&model='+model+'&id='+item_id,true)  
+  # delay("update_task()",300) 
+  
   return
 
 @sortable_query = (params)->
@@ -57,15 +68,13 @@ $(document).ready ->
         url: '/ajax/add_task'
         data: params
         success: ->
-          $.get 'tasks', '', null, 'script'
+          delay("update_task()",300)
           return
     return
-  $('input').on 'blur', ->
-    $('.editing').closest('li').removeClass 'editing'
+
   $(document).on 'keyup', 'input.edit', (e) ->
     if (e.which == 13)
         apply_opt_change(e.target.closest('li').getAttribute('data-id'))
-        e.target.blur()
     if (e.which == 27)
         $(e.target).closest('li').removeClass('editing')
   $(document).on 'dblclick', 'label',(e) ->  

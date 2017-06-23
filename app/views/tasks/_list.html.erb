@@ -1,12 +1,13 @@
-<%= chosen_src 'cat_id', Cat.all, 1,{class: 'schosen',add_name: 'new_task'} %>
-      <header id="header">
-        <h1>todos</h1>
-          
-          <% hidden_field 'new_task',:cat_id, value: 1 %>
-          
-          <input id="new_task_name" name="new_task[name]" placeholder="Новая задача">
+<div class="index_filter">
+<%= chosen_src 'cat_id', Cat.all, params[:cat_id],{class: 'schosen',add_name: 'new_task'} %>
+<header id="header">
+  <h1>todos</h1>
+    
+    <% hidden_field 'new_task',:cat_id, value: params[:cat_id] %>
+    <input id="new_task_name" name="new_task[name]" placeholder="Новая задача">
 
-      </header>
+</header>
+</div>
 
 <ul id="todo-list" model="Task">
 <% @tasks.each do |task| %>

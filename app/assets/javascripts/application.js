@@ -16,4 +16,28 @@
 //= require jquery-ui/accordion
 //= require jquery-ui/datepicker
 //= require turbolinks
+//= require nprogress
+//= require nprogress-turbolinks
 //= require_tree .
+
+function showNotifications(){ 
+  $nt = $(".alert"); 
+  setTimeout("$nt.addClass('in')",500);
+  setTimeout("$nt.removeClass('in').addClass('out')",5000);
+}
+	
+var delay = (function(){
+  var timer = 0;
+  return function(callback, ms){
+    clearTimeout (timer);
+    timer = setTimeout(callback, ms);
+  };
+})();
+
+
+var show_ajax_message = function(msg, type) {
+    if (!type) {type = "success"};
+    $(".js-notes").html( '<div class="alert flash_'+type+'">'+msg+'<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></div>');    
+    showNotifications();
+};
+
