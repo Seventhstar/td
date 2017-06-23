@@ -1,13 +1,20 @@
-<div class="index_filter">
 <%= chosen_src 'cat_id', Cat.all, params[:cat_id],{class: 'schosen',add_name: 'new_task'} %>
+<div class="sep_15" style="background: #f5f5f5"></div>
+
+<section id="todo_list">
+<div class="index_filter">
+
+
+
+
 <header id="header">
   <h1>todos</h1>
-    
     <% hidden_field 'new_task',:cat_id, value: params[:cat_id] %>
     <input id="new_task_name" name="new_task[name]" placeholder="Новая задача">
-
 </header>
 </div>
+
+
 
 <ul id="todo-list" model="Task">
 <% @tasks.each do |task| %>
@@ -15,7 +22,9 @@
         <div class="view">
           <input class="toggle" type="checkbox" <%= task.done ? 'checked=""true""' : '' %>>
           <label><%= task.name %></label>
-          <% tool_icons(task,{icons:'edit,delete',tag: 'span'}) %>
+          <span class="tool_icons">
+          <%= tool_icons(task,{icons:'edit,delete',modal: true}) %>
+          </span>
           <!-- <button class="edit"></button>
           <button class="destroy"></button> -->
           <span class="letter"><%= task.cat_name_a %></span>

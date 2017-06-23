@@ -11,7 +11,7 @@ class OptionsController < ApplicationController
     else
         sort = :name 
     end
-    p "sort",sort
+    # p "sort",sort
     @items = option_model.order(sort)
     @item = option_model.new
   end
@@ -21,7 +21,7 @@ class OptionsController < ApplicationController
   end
 
   def create
-    #p params[:options_page]
+    
     @item = option_model.new(options_params)
     @items  = option_model.order(:name)  
     respond_to do |format|
@@ -43,6 +43,8 @@ class OptionsController < ApplicationController
   # DELETE /absences/1.json
   def destroy
     @item = option_model.find(params[:id])
+    # @item = Cat.find(params[:id]) if @item.nil?
+    p "@item #{@item}"
     @item.destroy
     respond_to do |format|
       format.json { head :no_content }

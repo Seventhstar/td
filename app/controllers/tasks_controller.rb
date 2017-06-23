@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-
+  respond_to :html, :json
   # GET /tasks
   # GET /tasks.json
   def index
@@ -11,7 +11,7 @@ class TasksController < ApplicationController
     else
       @tasks = Task.all
     end
-
+    store_path(@tasks)
   end
 
   # GET /tasks/1
@@ -26,6 +26,8 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
+    @title = 'Редактирование задачи'
+    respond_modal_with @task, location: root_path
   end
 
   # POST /tasks
@@ -36,7 +38,7 @@ class TasksController < ApplicationController
     respond_to do |format|
       if @task.save
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
-        format.json { render :show, status: :created, location: @task }
+        format.json { render :root_path, status: :created, location: @task }
       else
         format.html { render :new }
         format.json { render json: @task.errors, status: :unprocessable_entity }
@@ -49,8 +51,8 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
-        format.json { render :show, status: :ok, location: @task }
+        format.html { redirect_to last_page_url(Task), notice: 'Task was successfully updated.' }
+        format.json { render :root_path, status: :ok, location: @task }
       else
         format.html { render :edit }
         format.json { render json: @task.errors, status: :unprocessable_entity }

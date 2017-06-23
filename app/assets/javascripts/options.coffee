@@ -128,7 +128,7 @@ $(document).on 'click', ' span.icon_remove', ->
     if attr_url!=undefined
       del_url = '/'+attr_url + '/' + item_id
     else
-      del_url = url + '/' + item_id
+      del_url = '/tasks/' + item_id
     if url.indexOf('edit')<1 && url.indexOf('options')<1 then url = url + '/edit'
    # url = url.replace('options/','')  
     del = confirm('Действительно удалить?')

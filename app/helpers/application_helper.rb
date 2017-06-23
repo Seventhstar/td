@@ -36,7 +36,8 @@ module ApplicationHelper
     modal = params[:modal] ||= false
     dilable_cls = params[:subcount]>0 ? '_disabled' : ''
     if params[:tag] == 'span'
-      all_icons['edit'] = content_tag :span, "", {class: 'icon icon_edit', item_id: element.id}
+      datap = modal ? {modal: true} : {}
+      all_icons['edit'] = content_tag :span, "", {class: 'icon icon_edit', item_id: element.id, 'data-modal'=> modal}
       all_icons['delete'] = content_tag( :span,"",{class: ['icon icon_remove',dilable_cls,' ',params[:class]].join, item_id: params[:subcount]>0 ? '' : element.id})
      else
       datap = modal ? {modal: true} : {}
@@ -46,6 +47,7 @@ module ApplicationHelper
       all_icons['delete'] = link_to "", element, method: :delete, data: { confirm: 'Действительно удалить?' }, class: "icon icon_remove " + params[:class] if params[:subcount]==0
       all_icons['delete'] = content_tag(:span,"",{class: 'icon icon_remove_disabled'}) if params[:subcount]>0
     end
+
     content_tag content,{:class=>["edit_delete",' ',params[:content_class]].join} do
       icons.collect{ |i| all_icons[i] }.join.html_safe
     end
