@@ -1,8 +1,14 @@
 class ApplicationController < ActionController::Base
-
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+  include SessionsHelper
+
+  def logged_in_user
+      unless logged_in?
+        store_location
+        # flash[:danger] = "Выполните вход."
+        redirect_to login_url
+      end
+  end
 
   def store_path(obj,def_url = root_path)
     session['last_'+obj.name+'_page'] = request.url || def_url if request.get?
@@ -19,5 +25,7 @@ class ApplicationController < ActionController::Base
     options[:responder] = ModalResponder
     respond_with *args, options, &blk
   end
+
+
 
 end

@@ -6,51 +6,13 @@ body {
   line-height: 18px;
 }
 
-p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-}
+p, ol, ul, td {font-family: verdana, arial, helvetica, sans-serif; font-size: 13px; line-height: 18px; }
+pre {background-color: #eee; padding: 10px; font-size: 11px; }
 
-pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px;
-}
-
-a {
-  color: #000;
-
-  &:visited {
-    color: #666;
-  }
-
-  &:hover1 {
-    color: #fff;
-    background-color: #000;
-  }
-}
-
-div {
-  &.field, &.actions {
-    margin-bottom: 10px;
-  }
-}
-
-div {
-    display: block;
-}
-
-#notice {
-  color: green;
-}
-
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
-}
-
+div {&.field, &.actions {margin-bottom: 10px; } }
+div {display: block; }
+#notice {color: green; }
+.field_with_errors {padding: 2px; background-color: red; display: table; }
 #error_explanation {
   width: 450px;
   border: 2px solid red;
@@ -76,9 +38,7 @@ div {
   }
 }
 
-.sep_15 {
-    height: 15px;
-}
+.sep_15 {height: 15px; }
 
 input[type="submit"]:focus, input[type="reset"]:focus, input[type="text"]:focus, input[type="tel"]:focus, input[type="url"]:focus, input[type="email"]:focus, input[type="search"]:focus, 
 input[type="password"]:focus, textarea:focus,.comment_area:focus, .txt:focus, #datepicker:focus, input[type="number"]:focus { 
@@ -97,49 +57,16 @@ transition: border linear 0.3s,box-shadow linear 0.3s;
 .view:hover .tool_icons {display: block;}
 
 .editable input{width: 100% !important;}
-//.tool_icons span:hover{display: block;}
 
-.hl_a.bd {
-    border-bottom: 2px solid #e5e5e5;
-    padding: 0 0 16px 0;
-    margin: 0 0 30px 0;
-}
+.hl_a.bd {border-bottom: 2px solid #e5e5e5; padding: 0 0 16px 0; margin: 0 0 30px 0; }
+.hl_a {font-size: 17px; color: #000; line-height: 1.2; margin: 0 0 14px 0; font-weight: 500; }
 
-.hl_a {
-    font-size: 17px;
-    color: #000;
-    line-height: 1.2;
-    margin: 0 0 14px 0;
-    font-weight: 500;
-}
+.modal-header {min-height: 16px; }
+.close.text {filter: alpha(opacity=20); opacity: .4; padding: 2px 0 0 4px; }
+button.close {-webkit-appearance: none; padding: 0; cursor: pointer; background: transparent; border: 0; }
+.close {float: right; font-size: 13px; line-height: 1.2; color: #000; text-shadow: 0 1px 0 #fff; }
+.modal-content {padding: 40px; }
 
-
-.modal-header {
-    min-height: 16px;
-}
-
-.close.text {
-    filter: alpha(opacity=20);
-    opacity: .4;
-    padding: 2px 0 0 4px;
-}
-
-button.close {
-    -webkit-appearance: none;
-    padding: 0;
-    cursor: pointer;
-    background: transparent;
-    border: 0;
-}
-
-.close {
-    float: right;
-    font-size: 13px;
-    line-height: 1.2;
-    color: #000;
-    text-shadow: 0 1px 0 #fff;
-}
-
-.modal-content {
-    padding: 40px;
-}
+table td {font-size: 13px; } 
+table.tbl_fc td.caption { padding-right: 15px; text-align: right; font-weight: bold; }
+.fullwidth, .fullwidth input {width: 100%;}

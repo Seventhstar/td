@@ -1,17 +1,8 @@
 class OptionsController < ApplicationController
-# before_action :logged_in_user
+ before_action :logged_in_user
  include OptionsHelper
   
   def _sort
-    o = option_model.name
-    case o
-    when "Holiday"
-
-        sort = :day
-    else
-        sort = :name 
-    end
-    # p "sort",sort
     @items = option_model.order(sort)
     @item = option_model.new
   end

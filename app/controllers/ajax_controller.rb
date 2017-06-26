@@ -1,4 +1,5 @@
 class AjaxController < ApplicationController
+before_action :logged_in_user
 
 	def add_task
 		t = Task.new(task_params)

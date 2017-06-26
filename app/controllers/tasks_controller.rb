@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :logged_in_user
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   respond_to :html, :json
   # GET /tasks
