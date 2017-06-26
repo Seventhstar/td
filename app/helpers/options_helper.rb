@@ -4,11 +4,11 @@ module OptionsHelper
 
   	case @page
   	when 'users'
-  		0
+  		1
     when 'cats'
-      1
+      2
   	else
-  		4
+  		1
   	end
   			
   end

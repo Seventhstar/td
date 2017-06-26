@@ -72,6 +72,21 @@ $(document).ready ->
           return
     return
 
+  # перемещение по меню
+   $('.menu_sb li a').click ->
+     $('.menu_sb li.active').removeClass 'active', 1000
+     $(this).parent().addClass 'active' , {duration:500}
+     url = $(this).attr('controller')
+     if url.indexOf('options')<1
+      url = 'options/' + url
+     url= url.replace('#','')
+     if url != '/undefined'
+       $.ajax
+         url: '/'+url
+         dataType: 'script'
+         success: ->
+          setLoc url    
+
   $(document).on 'keyup', 'input.edit', (e) ->
     if (e.which == 13)
         apply_opt_change(e.target.closest('li').getAttribute('data-id'))

@@ -3,7 +3,7 @@ class OptionsController < ApplicationController
  include OptionsHelper
   
   def _sort
-    @items = option_model.order(sort)
+    @items = option_model.order(:name)
     @item = option_model.new
   end
 
