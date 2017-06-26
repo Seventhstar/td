@@ -15,7 +15,6 @@
 //= require jquery-ui  
 //= require jquery-ui/accordion
 //= require jquery-ui/datepicker
-//= require turbolinks
 //= require nprogress
 //= require nprogress-turbolinks
 //= require_tree .

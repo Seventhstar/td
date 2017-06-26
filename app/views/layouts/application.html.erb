@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<%= favicon_link_tag 'favicon.ico' %>
   <title>Td</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
 <div id="modal-holder" class="slide"></div>
 <div class="container">
+
+<% if !current_user.nil? %>
+	
+<div class="menu_main menu_h">
+        <%= render_navigation :level => 1 %>
+      </div>
+<% end %>
 <%= yield %>
 </div>
 

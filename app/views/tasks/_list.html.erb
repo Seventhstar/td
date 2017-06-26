@@ -27,7 +27,7 @@
           </span>
           <!-- <button class="edit"></button>
           <button class="destroy"></button> -->
-          <span class="letter"><%= task.cat_name_a %></span>
+          <span class="letter" color=<%= task.cat.color %>><%= task.cat_name_a %></span>
         </div>
         <input class="edit" name="upd<%= task.id %>[name]" value="<%= task.name %>">
       </li>

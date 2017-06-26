@@ -28,7 +28,7 @@ html, body, div, span, img, a, fieldset, form, label, legend, table, tbody, tfoo
     outline: 0;
     font-size: 100%;
     vertical-align: baseline;
-    background: transparent;
+    /*background: transparent;*/
 }
 
 .inp_btn.checkbox.active, span.check_img.checked {
@@ -41,37 +41,7 @@ label.inp_btn_label .inp_btn {
     left: 0;
 }
 
-.inp_btn.checkbox, span.check_img {
-    background: asset-url(pict01.png);
-    width: 18px;
-    height: 18px;
-    background-position: -87px 0;
-}
 
-.inp_btn.checkbox, span.check_img {
-    width: 18px;
-    height: 18px;
-    background-position: -87px 0;
-}
-
-.inp_btn, span.check_img {
-    display: inline-block;
-    background: asset-url(pict01.png) no-repeat -87px 0;
-    position: relative;
-    cursor: pointer;
-    overflow: hidden;
-    vertical-align: top;
-}
-.inp_btn.checkbox input {
-    position: absolute;
-    top: 0;
-    left: -50px;
-}
-.auth_form {
-    width: 430px;
-    margin: 0 auto;
-    margin-top: 130px;
-}
 table.tbl_fc {
     border-collapse: collapse;
     width: 100%;

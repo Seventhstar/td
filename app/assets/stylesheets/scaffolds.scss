@@ -70,3 +70,47 @@ button.close {-webkit-appearance: none; padding: 0; cursor: pointer; background:
 table td {font-size: 13px; } 
 table.tbl_fc td.caption { padding-right: 15px; text-align: right; font-weight: bold; }
 .fullwidth, .fullwidth input {width: 100%;}
+
+.inp_btn.checkbox, span.check_img {
+    background: image-url("pict01.png");
+    width: 18px;
+    height: 18px;
+    background-position: -87px 0;
+}
+
+.inp_btn.checkbox, span.check_img {width: 18px; height: 18px; background-position: -87px 0; }
+.inp_btn, span.check_img {
+    display: inline-block;
+    background: image-url("pict01.png") no-repeat -87px 0;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    vertical-align: top;
+}
+.inp_btn.checkbox input {position: absolute; top: 0; left: -50px; } 
+.auth_form {width: 430px; margin: 0 auto; margin-top: 130px; }
+.menu_main ul, .submenu ul, .items_box_head ul {margin: 0 0 0 0; padding: 0 0 0 0; list-style: none; overflow: hidden; }
+.menu_main {height: 44px; background: #f1f1f1 image-url("bg1_1.png") no-repeat 0 0; border-radius: 5px; position: relative; margin-bottom: 40px; }
+.menu_main ul li, .submenu ul li, .items_box_head ul li {margin: 0 0 0 0; padding: 0 0 0 0; background: none; float: left; }
+.menu_main ul li a {
+    display: inline-block;
+    text-decoration: none;
+    line-height: 44px;
+    background: image-url("bg1_2.png") no-repeat 100% -100px;
+    padding: 0 14px 0 14px;
+}
+
+.menu_main ul li:not(.disabled) a:hover, .menu_main ul li.active a {background-position: 100% 0; }
+.menu_main ul li:not(.disabled) a:hover, .menu_main ul li.active a, .menu_main .btn_options:hover {
+    background: #59c600;
+    background: linear-gradient(to top, #59c600, #61c900);
+    color: #fff;
+}
+
+.menu_main ul li:first-child a {padding-left: 20px; border-radius: 5px 0 0 5px; }
+#logout a {padding-left: 20px; border-radius: 0 5px 5px 0; }
+#logout span {background: image-url("exita.png") no-repeat 0 0; background-position: 0 0; padding-top: 4px; border-radius: 0 5px 5px 0;}
+
+#options span {background: image-url("gear.png") no-repeat 0 0; background-position: 0 0; }
+.li-right a span {padding: 9px 16px; margin: 0; }
+.li-right, .right {float: right !important; margin-top: 0 !important; }
