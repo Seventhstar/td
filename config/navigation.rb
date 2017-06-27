@@ -3,9 +3,9 @@ SimpleNavigation::Configuration.run do |navigation|
   navigation.selected_class = 'selected active'
   navigation.active_leaf_class = 'active'
   navigation.items do |primary|
-#    
-    leads_class = (request.url==root_url || request.url==tasks_path) ? "selected active" : ""
-    primary.item :tasks, 'Задачи', root_path
+
+    main_class = (request.url==root_url || request.url==tasks_url) ? "selected active" : ""
+    primary.item :tasks, 'Задачи', root_path, html: {class: main_class}
     
 
     primary.item :logout,  content_tag(:span,' '), logout_path, method: :delete, html: {class: 'li-right logout', title: 'Выйти'}

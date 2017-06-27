@@ -3,19 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-span.letter{
-
-    text-align: center;
-    width: 40px;
-        height: 18px;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    padding: 20px 0;
-    background-color: bisque;
-    color: white;
-
-}
 
 li .icon {right: 0}
 .icon,li.icon a {display: inline-block; background: asset-url('pict01.png') no-repeat; vertical-align:middle; position:relative; 
@@ -29,16 +16,9 @@ a:hover .icon_user, .active .icon_user {background-position:-18px -18px; }
 .icon_show {background-position:-212px -16px; margin: 0 4px 0 0 !important;}
 .icon_apply {background-position:-69px -33px; }
 .icon_close {background-position: -52px -32px;}
-.icon_remove {
-    background-position: -52px 0;
-    width: 15px;
-    height: 15px;
-}
+.icon_remove {background-position: -52px 0; width: 15px; height: 15px; }
 
-.tbl_a table td.tools .icon, table .icon {
-    margin: 0 10px 0 0;
-}
-
+.tbl_a table td.tools .icon, table .icon {margin: 0 10px 0 0; }
 td.edit_delete {width: 60px;}
 
 // .icon_apply:hover {background-position:-69px -48px;}
@@ -68,11 +48,7 @@ td.edit_delete {width: 60px;}
 tr.editable td { padding: 3px 2px; vertical-align: middle;}
 tr.editable td.e_edit { padding: 3px 7px; }
 
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
+table {border-collapse: collapse; border-spacing: 0; }
 .tbl_a, .panel {
     border: 1px solid #e5e5e5;
     border-radius: 6px 6px 5px 5px;
@@ -81,10 +57,7 @@ table {
     background: white;
 }
 
-.tbl_a .head {
-    padding: 8px 12px;
-}
-
+.tbl_a .head {padding: 8px 12px; }
 .tbl_a .head, .panel-default .table-heading {
     background: #f2f2f2;
     padding: 8px;
@@ -107,3 +80,11 @@ table {
     -moz-box-sizing: border-box;
     font-size: 13px;
 }
+
+.box_wrap_1 .panel-left {width: 584px; }
+.left,  .panel-left  {float: left; }
+.right, .panel-right {float: right;}
+#task_description {width: 560px; height: 200px;}
+
+.letter{text-align: center; width: 40px; height: 18px; position: absolute; right: 0; bottom: 0; padding: 20px 0; background-color: bisque; color: white; }
+.letter{text-decoration: none; color: white;}

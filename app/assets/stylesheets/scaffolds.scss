@@ -102,8 +102,9 @@ table.tbl_fc td.caption { padding-right: 15px; text-align: right; font-weight: b
 
 .menu_main ul li:not(.disabled) a:hover, .menu_main ul li.active a {background-position: 100% 0; }
 .menu_main ul li:not(.disabled) a:hover, .menu_main ul li.active a, .menu_main .btn_options:hover {
-    background: #59c600;
-    background: linear-gradient(to top, #59c600, #61c900);
+    //background: #59c600;
+    //background: linear-gradient(to top, #59c600, #61c900);
+    //background: image-url("bg1_2.png") no-repeat 100% -100px;
     color: #fff;
 }
 
@@ -114,3 +115,5 @@ table.tbl_fc td.caption { padding-right: 15px; text-align: right; font-weight: b
 #options span {background: image-url("gear.png") no-repeat 0 0; background-position: 0 0; }
 .li-right a span {padding: 9px 16px; margin: 0; }
 .li-right, .right {float: right !important; margin-top: 0 !important; }
+
+.box_wrap:after {content: ' '; clear: both; display: block; width: 0; height: 0; overflow: hidden; font-size: 0; }

@@ -3,15 +3,28 @@
 		<div class="panel-left">
 			<table class="tbl_fc tbl_fc_1">
 			<tbody>
-			  <tr>
+			  
 			    <tr><td class="caption">Наименование:</td>
 						<td width="300px"><div class="lbl fullwidth"><%= f.input :name, label: false %></div></td></tr>
+
+					<tr><td class="caption">Категория:</td>
+						<td width="300px"><div class="lbl fullwidth"><%= chosen_src 'cat_id', Cat.all, @task,{class: 'schosen'} %></div></td></tr>						
+
+		<tr><td class="caption">Дата:</td>
+			<td><div class="inp_w"><%= f.text_field :date,:value => @task.date.try('strftime',"%d.%m.%Y"), label: false, class: "txt datepicker" %>
+			</div></td></tr>
+
 			  </tr>
+			  <tr><td><%= f.button :submit, value: 'Сохранить', :class => 'sub btn_a ' %></td></tr>
 			  </tbody>
 			</table>
+			</div>
+			<div class="panel-right">
+				<%= f.text_area :description, label: false %>
+			</div>
 
 
 
-<%= f.button :submit, value: 'Сохранить', :class => 'sub btn_a ' %>
+
 
 <% end %>
