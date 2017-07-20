@@ -68,7 +68,7 @@ $(document).ready ->
         url: '/ajax/add_task'
         data: params
         success: ->
-          delay("update_task()",300)
+          delay("update_task()",300)          
           return
     return
 

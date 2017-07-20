@@ -25,10 +25,9 @@
           <span class="tool_icons">
           <%= tool_icons(task,{icons:'edit,delete',modal: true}) %>
           </span>
-          <!-- <button class="edit"></button>
-          <button class="destroy"></button> -->
-          <!-- <span class="letter" color=<%= task.cat.color %>> <%= link_to task.cat_name_a,'?cat_id='+task.cat.id.to_s %> </span> -->
-          <%= link_to task.cat_name_a,'?cat_id='+task.cat.id.to_s, {class: 'letter', color: task.cat.color} %>
+          
+          
+          <%= link_to task.cat_name_a,'?cat_id='+task.cat_id, {class: 'letter', color: task.cat_color} %>
         </div>
         <input class="edit" name="upd<%= task.id %>[name]" value="<%= task.name %>">
       </li>

@@ -1,0 +1,14 @@
+.menu_main.navbar-fixed-top, .navbar-fixed-top {
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    z-index: 1030;
+}
+
+.nav, .menu_main .nav{
+    width: 1200px;
+    margin: 2px auto;
+    background: #f1f1f1 image-url("bg1_1.png") no-repeat 0 0; border-radius: 5px;
+    border: 1px solid #cacaca;    
+}

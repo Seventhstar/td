@@ -4,6 +4,7 @@ SimpleNavigation::Configuration.run do |navigation|
   navigation.active_leaf_class = 'active'
   navigation.items do |primary|
 
+    # p "request.url #{request.url} #{root_url} #{tasks_url}"
     main_class = (request.url==root_url || request.url==tasks_url) ? "selected active" : ""
     primary.item :tasks, 'Задачи', root_path, html: {class: main_class}
     

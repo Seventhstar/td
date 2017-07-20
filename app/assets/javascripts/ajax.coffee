@@ -31,18 +31,20 @@
   del_span = '<span class="icon icon_remove" item_id="'+item_id+'"></span>'
  $cell.html ('<span class="icon icon_edit" item_id="'+item_id+'"></span>'+del_span)
 
-@update_task = ->
-	cat_id = $('#new_task_cat_id').val()
-	prm = {'cat_id':cat_id}
-	$.get "/",prm,null, 'script'
-	setLoc "?"+ajx2q(prm)
-	apply_mask()
-
 @apply_mask = ->
-	$('.schosen').chosen(width: '99.5%').on 'change', ->
-		update_task()
-	$('input').on 'blur', ->
+  $('.schosen').chosen(width: '99.5%').on 'change', ->
+    if $('#new_task_name').val().length != 0
+      return
+    update_task()
+  $('input').on 'blur', ->
     $('.editing').closest('li').removeClass 'editing'
+
+@update_task = ->
+  cat_id = $('#new_task_cat_id').val()
+  prm = 'cat_id': cat_id
+  $.get '/', prm, null, 'script'
+  setLoc '?' + ajx2q(prm)
+  apply_mask()
 
 @cell_to_edit = (cl)->
   cl.addClass('editable')

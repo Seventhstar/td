@@ -14,11 +14,16 @@
 
 <% if !current_user.nil? %>
 	
-<div class="menu_main menu_h">
+<div class="menu_main navbar-fixed-top">
         <%= render_navigation :level => 1 %>
       </div>
 <% end %>
+
+<div id="main_container">
 <%= yield %>
+</div>
+
+
 </div>
 
 </body>
